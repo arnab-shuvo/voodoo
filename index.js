@@ -88,7 +88,6 @@ app.post('/api/games/search', (req, res) => {
 app.post('/api/games/populate', (req, res) => {
 	const games = [];
 	const promise1 = unifiedCrawler.apple.getSearchResult('', 100).then((result) => {
-		console.log(result, '=app');
 		result.forEach((app) => {
 			const appdata = {
 				publisherId: app.developerId,
@@ -103,7 +102,6 @@ app.post('/api/games/populate', (req, res) => {
 		});
 	});
 	const promise2 = unifiedCrawler.google.getSearchResult('', 100).then((result) => {
-		console.log(result, '=app');
 		result.forEach((app) => {
 			const appdata = {
 				publisherId: app.developerId,

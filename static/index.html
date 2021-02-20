@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
+  <style>z
     .section-container {
       max-width: 800px;
       margin-right: auto;
@@ -22,7 +22,6 @@
   <div id="app" class="container">
     <section class="section section-container" style="padding-top: 24px; padding-bottom: 5px;">
         <h2 class="title">Games</h2>
-        <populate />
         <game v-for="(game, index) in games"
             :key="`game.name-${index}`"
             :game="game"
@@ -127,25 +126,6 @@
       </form>
     `
   }
-
-  const Populate = {
-    props: ['populate'],
-    components: { 'populate': Populate },
-    data () {
-      return {
-        showDetail: false
-      }
-    },
-    methods: {
-      populate () {
-        this.$emit('populate')
-      }
-    },
-    template: `
-      <button @click.stop="populate()">Populate</button>
-    `
-  }
-
   const Game = {
     props: ['game'],
     components: { 'populate': AddUpdateGame },
@@ -184,7 +164,7 @@
 
   new Vue({
     el: '#app',
-    components: { game: Game, 'add-update-game': AddUpdateGame ,populate: populate},
+    components: { game: Game, 'add-update-game': AddUpdateGame ,},
     data: {
       games: [],
       apiURL: 'http://localhost:3000/api/games'
